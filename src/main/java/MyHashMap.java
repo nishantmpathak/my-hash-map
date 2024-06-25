@@ -24,7 +24,8 @@ public class MyHashMap <K, V>{
         hashTable = new Entry[capacity];
     }
 
-    private int calculateCapacity(int n) {
+    private static int calculateCapacity(int n) {
+        n = n-1;  // To handle corner case like 16, 32 etc
         n|= n>>1;
         n|= n>>2;
         n|= n>>4;
@@ -75,6 +76,13 @@ public class MyHashMap <K, V>{
         System.out.println(myHashMap.get(2));
         System.out.println(myHashMap.get(3));
         System.out.println(myHashMap.get(4));
+
+        System.out.println(calculateCapacity(14));
+        System.out.println(calculateCapacity(7));
+        System.out.println(calculateCapacity(17));
+        System.out.println(calculateCapacity(16));
+        System.out.println(calculateCapacity(1));
+
 
     }
 
